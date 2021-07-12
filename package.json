@@ -1,0 +1,85 @@
+{
+  "name": "dsl-backend",
+  "version": "1.0.0",
+  "description": "Backend Application for handling all DevStreetLab API Endpoints",
+  "main": "build/index.js",
+  "scripts": {
+    "clean": "rimraf build/ && rimraf bundle/",
+    "tsc": "tsc",
+    "tsw": "tsc -w",
+    "copy-assets": "ts-node src/tools/copyAssets",
+    "build": "npm-run-all clean tsc copy-assets",
+    "watch": "npm-run-all clean tsw copy-assets",
+    "webpack": "webpack",
+    "start:build": "nodemon build/index.js",
+    "start:dev": "nodemon src/index.ts",
+    "start:bundle": "nodemon build/index.min.js",
+    "rename": "mv bundled build",
+    "bundle": "npm-run-all build webpack clean rename copy-assets",
+    "launch:dev": "pm2 start ecosystem.config.js --env production",
+    "predeploy": "npm run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevStreetLab/dsl-backend.git"
+  },
+  "keywords": [
+    "dsl-backend",
+    "api-endpoints"
+  ],
+  "author": {
+    "name": "Aswin Sahlan Himawan",
+    "email": "ashymee@gmail.com",
+    "url": "https://devstreetlab.my.id"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DevStreetLab/dsl-backend/issues"
+  },
+  "homepage": "https://github.com/DevStreetLab/dsl-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "app-root-path": "^3.0.0",
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "ddos": "^0.2.1",
+    "dotenv": "^10.0.0",
+    "express-useragent": "^1.0.15",
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.6.2",
+    "redis": "^3.1.2",
+    "url-slug": "^3.0.2",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "ts-node": "^10.1.0",
+    "@types/app-root-path": "^1.2.4",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/compression": "^1.7.0",
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.10",
+    "@types/express-session": "^1.17.3",
+    "@types/express-useragent": "^1.0.0",
+    "@types/jsonwebtoken": "^8.5.1",
+    "@types/lodash": "^4.14.170",
+    "@types/multer": "^1.4.7",
+    "@types/nodemailer": "^6.4.2",
+    "@types/redis": "^2.8.30",
+    "@types/shelljs": "^0.8.8",
+    "@types/yup": "^0.29.12",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.4",
+    "typescript": "^4.3.2",
+    "webpack": "^5.40.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "private": true
+}
