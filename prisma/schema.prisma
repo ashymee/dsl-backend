@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  password  String
+  roleId    Int      @default(1)
+  appId     String?
+  notesId   String?
+  status    Int      @default(1)
+  gCode     String?
+  createdAt DateTime @default(now())
+  createdBy String?
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+
+  app   app?   @relation("user - app", fields: [appId], references: [id])
+  role  role?  @relation("user - role", fields: [roleId], references: [id])
+  notes notes? @relation("User - notes", fields: [notesId], references: [id])
+}
+
+model role {
+  id   Int    @id @default(autoincrement())
+  name String
+
+  app  app[]  @relation("app - role")
+  User User[] @relation("user - role")
+}
+
+model app {
+  id       String @id @default(uuid())
+  name     String
+  platform String
+  roleId   Int
+
+  role role   @relation("app - role", fields: [roleId], references: [id])
+  User User[] @relation("user - app")
+}
+
+model notes {
+  id        String   @id @default(uuid())
+  log       Int      @default(1)
+  title     String
+  body      String
+  createdAt DateTime @default(now())
+  createdBy String?
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+
+  User User[] @relation("User - notes")
+}
