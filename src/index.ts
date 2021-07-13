@@ -19,6 +19,5 @@ app.get('/', (req: express.Request, res: express.Response) => {
   res.render('Welcome..')
 })
 
-app.listen(config.global.port, () =>
-  console.info(`server is running on ${config.global.url}:${config.global.port}`)
-)
+const port = process.env.PORT || 9999
+app.listen(port, () => console.info(`server is running on ${config.global.url}:${port}`))

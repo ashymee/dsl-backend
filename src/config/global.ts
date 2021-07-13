@@ -5,7 +5,6 @@ import firebase from 'firebase'
 dotenv.config()
 
 const {
-  PORT,
   HOST,
   HOST_URL,
   FIREBASE_API_KEY,
@@ -18,11 +17,9 @@ const {
   FIREBASE_MEASUREMENT_ID,
 } = process.env
 
-assert(PORT, 'port is required')
 assert(HOST, 'host is required')
 
 export const global = {
-  port: PORT,
   host: HOST,
   url: HOST_URL,
   firebaseConfig: {
