@@ -4,16 +4,16 @@
   "description": "Backend Application for handling all DevStreetLab API Endpoints",
   "main": "build/index.js",
   "scripts": {
-    "clean": "rimraf build/ && rimraf bundle/",
+    "clean": "rimraf build/ && rimraf bundle/ && rimraf dist/",
     "tsc": "tsc",
     "tsw": "tsc -w",
     "copy-assets": "ts-node src/tools/copyAssets",
     "webpack": "webpack",
-    "rename": "mv bundled build",
+    "rename": "mv bundled dist",
     "start:dev": "nodemon src/index.ts",
     "start:bundle": "nodemon build/index.min.js",
     "bundle": "npm-run-all clean tsc webpack clean rename copy-assets",
-    "start": "node build/index.min.js"
+    "start": "node dist/index.min.js"
   },
   "repository": {
     "type": "git",
