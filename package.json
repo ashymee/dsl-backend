@@ -12,7 +12,8 @@
     "rename": "mv bundled build",
     "start:dev": "nodemon src/index.ts",
     "start:bundle": "nodemon build/index.min.js",
-    "build": "npm-run-all build webpack clean rename copy-assets",
+    "build:dev": "npm-run-all clean tsc",
+    "build": "npm-run-all webpack clean rename copy-assets",
     "start": "node build/index.min.js"
   },
   "repository": {
