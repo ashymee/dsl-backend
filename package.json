@@ -8,16 +8,12 @@
     "tsc": "tsc",
     "tsw": "tsc -w",
     "copy-assets": "ts-node src/tools/copyAssets",
-    "build": "npm-run-all clean tsc copy-assets",
-    "watch": "npm-run-all clean tsw copy-assets",
     "webpack": "webpack",
+    "rename": "mv bundled build",
     "start:dev": "nodemon src/index.ts",
     "start:bundle": "nodemon build/index.min.js",
-    "rename": "mv bundled build",
-    "bundle": "npm-run-all build webpack clean rename copy-assets",
-    "launch:dev": "pm2 start ecosystem.config.js --env production",
-    "predeploy": "npm run",
-    "start": "node build/index.js"
+    "build": "npm-run-all build webpack clean rename copy-assets",
+    "start": "node build/index.min.js"
   },
   "repository": {
     "type": "git",
