@@ -13,15 +13,17 @@ type Student = {
 
 type MasterProps = {
   id: string
+  appID: string
+  userID: string
+  roleID: string
+  noteID: string
+  platformID: string
   username: string
   email: string
   password: string
   gCode: string | null
   userfile: string
-  appId: string
   name: string
-  roleId: string
-  notesId: string
   title: string
   slug: string
   body: string
@@ -31,6 +33,14 @@ type MasterProps = {
   updatedBy: string | null
 }
 
+type Platform = {
+  [Key in 'id' | 'name']: MasterProps[Key]
+}
+
+type App = {
+  [Key in 'id' | 'name' | 'platformID']: MasterProps[Key]
+}
+
 type User = {
   [Key in
     | 'id'
@@ -38,7 +48,8 @@ type User = {
     | 'email'
     | 'password'
     | 'gCode'
-    | 'roleId'
+    | 'roleID'
+    | 'noteID'
     | 'userfile'
     | 'createdAt'
     | 'createdBy'
@@ -46,4 +57,15 @@ type User = {
     | 'updatedBy']: MasterProps[Key]
 }
 
-type
+type Note = {
+  [Key in
+    | 'id'
+    | 'userID'
+    | 'title'
+    | 'slug'
+    | 'body'
+    | 'createdAt'
+    | 'createdBy'
+    | 'updatedAt'
+    | 'updatedBy']: MasterProps[Key]
+}

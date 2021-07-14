@@ -1,3 +1,3 @@
-import { collections, db, firestore, global } from './global'
+import { collections, db, firebaseAdmin, firestore, global } from './global'
 
-export { db, firestore, global, collections }
+export { db, firestore, firebaseAdmin, global, collections }

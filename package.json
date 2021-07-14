@@ -17,7 +17,9 @@
     "rename": "mv bundled build",
     "bundle": "npm-run-all build webpack clean rename copy-assets",
     "launch:dev": "pm2 start ecosystem.config.js --env production",
-    "predeploy": "npm run"
+    "predeploy": "npm run",
+    "serve": "node build/index.js",
+    "start": "npm-run-all build webpack clean rename copy-assets serve"
   },
   "repository": {
     "type": "git",
@@ -49,6 +51,8 @@
     "express": "^4.17.1",
     "express-useragent": "^1.0.15",
     "firebase": "^8.7.1",
+    "firebase-admin": "^9.10.0",
+    "googleapis": "^81.0.0",
     "helmet": "^4.6.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",

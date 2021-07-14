@@ -1,6 +1,8 @@
 import assert from 'assert'
 import dotenv from 'dotenv'
 import firebase from 'firebase'
+import admin from 'firebase-admin'
+import serviceAccount from './serviceAccountKey.json'
 
 dotenv.config()
 
@@ -40,4 +42,11 @@ export const firestore = db.firestore()
 
 export const collections = {
   students: firestore.collection('students'),
+  users: firestore.collection('users'),
+  tweets: firestore.collection('tweets'),
 }
+
+export const firebaseAdmin = admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount as admin.ServiceAccount),
+  databaseURL: 'https://dsl-backend-default-rtdb.firebaseio.com',
+})

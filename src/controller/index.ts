@@ -1,3 +1,5 @@
-import * as Students from './Students'
+import Notes from './Notes'
+import Students from './Students'
+import Users from './Users'
 
-export { Students }
+export { Students, Users, Notes }
