@@ -1,4 +1,3 @@
-import assert from 'assert'
 import dotenv from 'dotenv'
 import firebase from 'firebase'
 import admin from 'firebase-admin'
@@ -18,8 +17,6 @@ const {
   FIREBASE_APP_ID,
   FIREBASE_MEASUREMENT_ID,
 } = process.env
-
-assert(HOST, 'host is required')
 
 export const global = {
   host: HOST,
