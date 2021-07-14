@@ -13,8 +13,9 @@
     "start:dev": "nodemon src/index.ts",
     "start:bundle": "nodemon build/index.min.js",
     "build:dev": "npm-run-all clean tsc",
-    "build": "npm-run-all webpack clean rename copy-assets",
-    "start": "node build/index.min.js"
+    "bundle": "npm-run-all webpack clean rename copy-assets",
+    "build": "tsc",
+    "start": "node build/index.js"
   },
   "repository": {
     "type": "git",
