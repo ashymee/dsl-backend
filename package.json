@@ -11,15 +11,13 @@
     "build": "npm-run-all clean tsc copy-assets",
     "watch": "npm-run-all clean tsw copy-assets",
     "webpack": "webpack",
-    "start:build": "nodemon build/index.js",
     "start:dev": "nodemon src/index.ts",
     "start:bundle": "nodemon build/index.min.js",
     "rename": "mv bundled build",
     "bundle": "npm-run-all build webpack clean rename copy-assets",
     "launch:dev": "pm2 start ecosystem.config.js --env production",
     "predeploy": "npm run",
-    "serve": "node build/index.js",
-    "start": "npm-run-all build webpack clean rename copy-assets serve"
+    "start": "node build/index.js"
   },
   "repository": {
     "type": "git",
