@@ -4,7 +4,7 @@ import * as model from '../../model'
 
 class Users {
   async load(req: express.Request, res: express.Response) {
-    const { id } = req.params
+    // const { id } = req.params
 
     try {
       // if (!id) {

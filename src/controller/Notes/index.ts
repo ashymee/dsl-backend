@@ -1,7 +1,7 @@
 import express from 'express'
 
 class Notes {
-  async load(req: express.Request, res: express.Response) {
+  load(req: express.Request, res: express.Response) {
     try {
       res.send({
         todos: [{ title: 'title 1' }, { title: 'title 2' }, { title: 'title 3' }],
